@@ -1,0 +1,23 @@
+{
+  "input": {
+    "extracted_data_file": "Extracted_Data_2023.xlsx",
+    "sub_indicator_mapping_file": "Sub_Indicator_Mappings.xlsx"
+  },
+  "dependency_files": {
+    "metadata_file": "Metadata.xlsx",
+    "indicators_file": "Indicators_list.xlsx",
+    "lat_long_file": "LAT LONG.xlsx",
+    "taxonomy_file": "Taxonomy_Mapping.xlsx",
+    "temporal_log_file": "Temporal indicator log.xlsx"
+  },
+  "scripts": {
+    "transformation_script": "convert_plfs_industry_to_raw_dynamic.py",
+    "standardization_script": "v36_cdap_pipeline_refactored.py"
+  },
+  "output": {
+    "intermediate_output_dir": "output/intermediate",
+    "final_output_dir": "output/final",
+    "intermediate_output_file": "transformed_raw_format.xlsx",
+    "final_output_file": "final_cdap_output.xlsx"
+  }
+}
