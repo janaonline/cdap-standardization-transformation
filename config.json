@@ -1,23 +1,42 @@
 {
+  "mode": "auto",
   "input": {
-    "extracted_data_file": "Extracted_Data_2023.xlsx",
-    "sub_indicator_mapping_file": "Sub_Indicator_Mappings.xlsx"
-  },
-  "dependency_files": {
-    "metadata_file": "Metadata.xlsx",
-    "indicators_file": "Indicators_list.xlsx",
-    "lat_long_file": "LAT LONG.xlsx",
-    "taxonomy_file": "Taxonomy_Mapping.xlsx",
-    "temporal_log_file": "Temporal indicator log.xlsx"
-  },
-  "scripts": {
-    "transformation_script": "convert_plfs_industry_to_raw_dynamic.py",
-    "standardization_script": "v36_cdap_pipeline_refactored.py"
+    "source_file": "input/source_data.xlsx",
+    "intermediate_file": "input/intermediate_raw_dataset.xlsx",
+    "metadata_file": "input/metadata.xlsx",
+    "taxonomy_file": "input/taxonomy_mapping.xlsx",
+    "indicators_file": "input/indicators_list.xlsx",
+    "temporal_log_file": "input/temporal_indicator_log.xlsx",
+    "lat_long_file": "input/lat_long.xlsx",
+    "sub_indicator_mapping_file": "input/sub_indicator_mappings.xlsx"
   },
   "output": {
-    "intermediate_output_dir": "output/intermediate",
-    "final_output_dir": "output/final",
-    "intermediate_output_file": "transformed_raw_format.xlsx",
-    "final_output_file": "final_cdap_output.xlsx"
+    "intermediate_dir": "output/intermediate",
+    "final_dir": "output/final",
+    "reports_dir": "output/reports",
+    "intermediate_file": "intermediate_raw_dataset.xlsx",
+    "final_file": "final_cdap_output.xlsx",
+    "final_csv_file": "final_cdap_output.csv"
+  },
+  "input_detection": {
+    "prefer_intermediate_if_present": true,
+    "allow_source_file": true,
+    "allow_intermediate_file": true
+  },
+  "parser_settings": {
+    "format_detection_mode": "auto",
+    "confidence_threshold": 0.7,
+    "allow_unknown_format_report": true
+  },
+  "year_detection": {
+    "priority": [
+      "explicit_year_column",
+      "year_columns",
+      "table_title",
+      "sheet_name",
+      "metadata_uid",
+      "filename"
+    ],
+    "allow_financial_year": true
   }
 }
